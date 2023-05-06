@@ -1,0 +1,33 @@
+{% load static %}
+{% with request.resolver_match.view_name as view_name %}
+<header style="background-color: lightskyblue">
+  <div class="container">     
+  <nav class="navbar navbar-light" >
+    <a class="navbar-brand" href="{% url 'blog:index' %}">
+      <img src="{% static 'img/logo.png'%}" height='50' alt=''>
+      <span style="color:black">Блогикум </span>
+    </a>
+    <ul class="nav  nav-pills">
+        <li class="nav-item">
+          <a class="nav-link {% if view_name  == 'blog:index' %}active{% endif %}"
+             href="{% url 'blog:index' %}">
+             Лента записей
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if view_name  == 'pages:about' %}active{% endif %}"
+             href="{% url 'pages:about' %}">
+             О проекте
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if view_name  == 'pages:rules' %}active{% endif %}"
+             href="{% url 'pages:rules' %}">
+             Наши правила
+          </a>
+        </li>
+        {% endwith %} 
+      </ul>      
+  </nav> 
+</div>
+</header>
